@@ -11,9 +11,9 @@
             "loggingOptions": "",
             "registryCredentials": {
               "default": {
-                "username": "$CONTAINER_REGISTRY_USERNAME",
-                "password": "$CONTAINER_REGISTRY_PASSWORD",
-                "address": "$CONTAINER_REGISTRY_ADDRESS"
+                "username": "${CONTAINER_REGISTRY_USERNAME}",
+                "password": "${CONTAINER_REGISTRY_PASSWORD}",
+                "address": "${CONTAINER_REGISTRY_SERVER}"
               }
             }
           }
@@ -97,7 +97,9 @@
             "startupOrder": 1,
             "settings": {
               "image": "${MODULES.RedisTimeSeriesEdge.debug}",
-              "createOptions": {}
+              "createOptions": {
+                "Hostname": "$REDIS_TIME_SERIES_EDGE_HOST_NAME"
+              }
             },
             "env": {
               "REDIS_HOST_NAME": {

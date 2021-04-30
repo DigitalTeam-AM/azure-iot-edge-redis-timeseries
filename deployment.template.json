@@ -11,9 +11,9 @@
             "loggingOptions": "",
             "registryCredentials": {
               "default": {
-                "username": "$CONTAINER_REGISTRY_USERNAME",
-                "password": "$CONTAINER_REGISTRY_PASSWORD",
-                "address": "$CONTAINER_REGISTRY_ADDRESS"
+                "username": "${CONTAINER_REGISTRY_USERNAME}",
+                "password": "${CONTAINER_REGISTRY_PASSWORD}",
+                "address": "${CONTAINER_REGISTRY_SERVER}"
               }
             }
           }
@@ -82,7 +82,7 @@
             },
             "env": {
               "MessageCount": {
-                "value": "-1"
+                "value": -1
               },
               "MessageDelay": {
                 "value": "00:00:01"
@@ -97,7 +97,9 @@
             "startupOrder": 1,
             "settings": {
               "image": "${MODULES.RedisTimeSeriesEdge}",
-              "createOptions": {}
+              "createOptions": {
+                "Hostname": "$REDIS_TIME_SERIES_EDGE_HOST_NAME"
+              }
             },
             "env": {
               "REDIS_HOST_NAME": {
