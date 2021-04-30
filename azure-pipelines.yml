@@ -6,8 +6,8 @@ pool:
 
 variables:
   BUILD_VERSION: '$(Build.BuildId)'
-  iothubname: 'edge-test-hub1'
-  edgeDeviceId: 'edge02'
+  iothubname: 'Dashiell-Iot-Hub'
+  edgeDeviceId: 'edge01'
 
 steps:
 - script: pip install -U iotedgedev
